@@ -1,8 +1,11 @@
 const app = require("express")();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const cors = require("cors");
 
 const Messages = require("./lib/Messages");
+
+app.use(cors());
 
 app.get("/", (req, res) => {
 	res.end("Merhaba Socket.IO");
